@@ -54,7 +54,22 @@ These trigger color changes when the value of the dial is between the min and ma
 		}]
 	});
 
-I will be adding callback functions to this option soon.
+You can also add a callback to the object which is passed the instance
+
+	$('#dial').dial({
+		ranges : [{
+			min : 0,
+			max : 49,
+			color : 'green',
+			callback : function(instance) {
+				console.log(instance.value);
+			}
+		}, {
+			min : 50,
+			max : 100,
+			color : 'red'
+		}]
+	});
 
 All Options
 ------------------------

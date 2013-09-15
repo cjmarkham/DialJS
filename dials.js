@@ -104,6 +104,7 @@ var Dial = function() {
 				}
 
 				self.value = old;
+				$(self.element).attr('data-value', old);
 				self.render();
 
 				if (old >= value) {
@@ -126,12 +127,17 @@ var Dial = function() {
 
 						if (old >= range.min && old <= range.max) {
 							self.options.color = range.color;
+
+							if (range.callback && typeof range.callback == 'function') {
+								range.callback(self);
+							}
 						}
 					}
 
 				}
 
 				self.value = old;
+				$(self.element).attr('data-value', old);
 				self.render();
 
 				if (old <= value) {
